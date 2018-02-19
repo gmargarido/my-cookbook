@@ -6,9 +6,7 @@
   <%= r.label :recipe_type, 'Tipo da Receita' %>
   <%= r.text_field :recipe_type %> <br> <br>
   <%= r.label :cuisine_id, 'Cozinha' %>
-  <%= r.select(:cuisine_id) do %>
-    <%= options_from_collection_for_select(Cuisine.all, :id, :name) %>
-  <% end %> <br> <br>
+  <%= r.collection_select(:cuisine_id, Cuisine.all, :id, :name) %> <br> <br>
   <%= r.label :difficulty, 'Dificuldade' %>
   <%= r.text_field :difficulty %> <br> <br>
   <%= r.label :cook_time, 'Tempo de Preparo' %>
