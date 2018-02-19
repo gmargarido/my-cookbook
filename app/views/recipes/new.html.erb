@@ -1,0 +1,21 @@
+<h1> Cadastrar Receita </h1>
+
+<%= form_for(@recipe) do |r| %>
+  <%= r.label :title, 'Título' %>
+  <%= r.text_field :title %> <br> <br>
+  <%= r.label :recipe_type, 'Tipo da Receita' %>
+  <%= r.text_field :recipe_type %> <br> <br>
+  <%= r.label :cuisine_id, 'Cozinha' %>
+  <%= r.select(:cuisine_id) do %>
+    <%= options_from_collection_for_select(Cuisine.all, :id, :name) %>
+  <% end %> <br> <br>
+  <%= r.label :difficulty, 'Dificuldade' %>
+  <%= r.text_field :difficulty %> <br> <br>
+  <%= r.label :cook_time, 'Tempo de Preparo' %>
+  <%= r.text_field :cook_time %> <br> <br>
+  <%= r.label :ingredients, 'Ingredientes' %>
+  <%= r.text_field :ingredients %> <br> <br>
+  <%= r.label :method, 'Como Preparar' %>
+  <%= r.text_field :method %> <br> <br>
+  <%= r.submit 'Enviar' %>
+<% end %>

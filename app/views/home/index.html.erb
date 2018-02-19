@@ -1,0 +1,14 @@
+<h1>CookBook</h1>
+<p>Bem-vindo ao maior livro de receitas online</p>
+
+<% @recipe.each do |p| %>
+<h1> <%= link_to p.title, recipe_path(p.id) %> </h1>
+<ul>
+  <li> <%= p.recipe_type %> </li>
+  <li> <%= p.cuisine.name %> </li>
+  <li> <%= p.difficulty %> </li>
+  <li> <%= "#{p.cook_time} minutos" %> </li>
+</ul>
+<% end %>
+
+<%= link_to "Enviar uma receita", new_recipe_path %>
