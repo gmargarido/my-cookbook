@@ -10,13 +10,13 @@ class CuisinesController < ApplicationController
   def create
     name = params[:cuisine][:name]
 
-    cuisine = Cuisine.new(name: name)
+    @cuisine = Cuisine.new(name: name)
 
-    if cuisine.save
-      @last_cuisine = Cuisine.last.id
-      redirect_to cuisine_url(@last_cuisine)
+    if @cuisine.save
+      redirect_to cuisine_url(@cuisine)
     else
-      redirect_to new_cuisine_url
+      flash[:error] = 'Você deve informar o nome da cozinha'
+      render :new
     end
   end
 end
