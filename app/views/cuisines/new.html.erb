@@ -1,0 +1,8 @@
+<h1>Cadastrar Cozinha</h1>
+
+<p><%= @error_msg %></p>
+<%= form_for(@cuisine) do |c| %>
+  <%= c.label :name, 'Nome' %>
+  <%= c.text_field :name, :required => true  %> <br> <br>
+  <%= c.submit 'Enviar' %>
+<% end %>
