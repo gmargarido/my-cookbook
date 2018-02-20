@@ -1,5 +1,7 @@
 <h1> Cadastrar Receita </h1>
 
+<p><%= flash[:error] %></p>
+
 <%= form_for(@recipe) do |r| %>
   <%= r.label :title, 'Título' %>
   <%= r.text_field :title %> <br> <br>

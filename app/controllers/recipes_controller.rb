@@ -19,14 +19,15 @@ class RecipesController < ApplicationController
     ingredientes = params[:recipe][:ingredients]
     metodo = params[:recipe][:method]
 
-    recipe = Recipe.new(title: titulo, recipe_type: tipo,
+    @recipe = Recipe.new(title: titulo, recipe_type: tipo,
       cuisine_id: cozinha, difficulty: dificuldade,
       cook_time: tempo, ingredients: ingredientes, method: metodo)
 
-    recipe.save
-
-    @last_recipe = Recipe.last.id
-    redirect_to recipe_url(@last_recipe)
-
+    if @recipe.save
+      redirect_to recipe_url(@recipe)
+    else
+      flash[:error] = 'Você deve informar todos os dados da receita'
+      render :new
+    end
   end
 end
