@@ -21,4 +21,25 @@ class RecipesController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def update
+    recipe_params = params.require(:recipe).permit(:title, :recipe_type_id, :cuisine_id,
+                                            :difficulty, :cook_time, :ingredients, :method)
+
+    id = params[:id]
+    @recipe = Recipe.find(id)
+    update = @recipe.update(recipe_params)
+
+
+    if update
+      redirect_to recipe_path(id)
+    else
+      flash[:error] = 'Você deve informar todos os dados da receita'
+      render :edit
+    end
+  end
 end

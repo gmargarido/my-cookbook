@@ -1,4 +1,6 @@
 <h1> <%= @recipe.title %> </h1>
+<%= link_to "Editar", edit_recipe_path(@recipe.id) %>
+<br>
 <h3> Detalhes </h3>
 <p> <%= @recipe.recipe_type.name %> </p>
 <p> <%= @recipe.cuisine.name %> </p>
