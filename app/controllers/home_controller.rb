@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @recipe = Recipe.all
+    @recipes = Recipe.all
     @cuisines = Cuisine.all
   end
 end

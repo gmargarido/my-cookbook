@@ -9,13 +9,13 @@
   </ul>
 <% end %>
 
-<% @recipe.each do |p| %>
-<h1> <%= link_to p.title, recipe_path(p.id) %> </h1>
+<% @recipes.each do |recipe| %>
+<h1> <%= link_to recipe.title, recipe_path(recipe.id) %> </h1>
 <ul>
-  <li> <%= p.recipe_type %> </li>
-  <li> <%= p.cuisine.name %> </li>
-  <li> <%= p.difficulty %> </li>
-  <li> <%= "#{p.cook_time} minutos" %> </li>
+  <li> <%= recipe.recipe_type.name %> </li>
+  <li> <%= recipe.cuisine.name %> </li>
+  <li> <%= recipe.difficulty %> </li>
+  <li> <%= "#{recipe.cook_time} minutos" %> </li>
 </ul>
 <% end %>
 

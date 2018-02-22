@@ -11,20 +11,13 @@ class RecipesController < ApplicationController
 
   def create
 
-    titulo = params[:recipe][:title]
-    tipo = params[:recipe][:recipe_type]
-    cozinha = params[:recipe][:cuisine_id]
-    dificuldade = params[:recipe][:difficulty]
-    tempo = params[:recipe][:cook_time]
-    ingredientes = params[:recipe][:ingredients]
-    metodo = params[:recipe][:method]
+    recipe_params = params.require(:recipe).permit(:title, :recipe_type_id, :cuisine_id,
+                                            :difficulty, :cook_time, :ingredients, :method)
 
-    @recipe = Recipe.new(title: titulo, recipe_type: tipo,
-      cuisine_id: cozinha, difficulty: dificuldade,
-      cook_time: tempo, ingredients: ingredientes, method: metodo)
+    @recipe = Recipe.new(recipe_params)
 
     if @recipe.save
-      redirect_to recipe_url(@recipe)
+      redirect_to @recipe
     else
       flash[:error] = 'Você deve informar todos os dados da receita'
       render :new
