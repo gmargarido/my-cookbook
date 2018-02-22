@@ -1,12 +1,10 @@
 class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
-    @cuisines = Cuisine.all
   end
 
   def new
     @recipe = Recipe.new
-    @cuisines = Cuisine.all
   end
 
   def create
