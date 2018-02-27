@@ -1,6 +1,9 @@
 <h1>Cadastrar Cozinha</h1>
 
 <p><%= flash[:error] %></p>
+<% @cuisine.errors.full_messages.each do |msg| %>
+  <p> <%= msg %>  </p>
+<% end %>
 
 <%= form_for(@cuisine) do |c| %>
   <%= c.label :name, 'Nome' %>
