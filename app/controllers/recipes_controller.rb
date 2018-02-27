@@ -48,4 +48,12 @@ class RecipesController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+
+    @recipe.delete
+
+    redirect_to root_path
+  end
 end
