@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "User don't create a duplicated recipe" do
+feature "User don't create a duplicated cuisine" do
   scenario 'successfully' do
     #cria os dados necessários, nesse caso não vamos criar dados no banco
     cuisine = Cuisine.create(name: 'Japonesa')

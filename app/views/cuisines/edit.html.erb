@@ -1,0 +1,9 @@
+<h1>Editar Cozinha</h1>
+
+<p><%= flash[:error] %></p>
+
+<%= render partial: 'shared/errors', locals: {obj: @cuisine} %>
+
+<%= render 'form' %>
+
+<%= link_to 'Voltar', cuisine_path(@cuisine) %>
