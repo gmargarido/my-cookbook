@@ -59,4 +59,11 @@ class RecipesController < ApplicationController
 
     redirect_to root_path
   end
+
+  def search
+    @string = params[:string]
+
+    @recipes = Recipe.where('title like ?', "%#{params[:string]}%")
+  end
+
 end

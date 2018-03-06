@@ -1,13 +1,22 @@
 <h1>Resultado da busca por: <i><%= @string %></i> </h1>
 <% if @recipes.any? %>
-  <% @recipes.each do |recipe| %>
-  <h1> <%= link_to recipe.title, recipe %> </h1>
+  <% if @recipes.size == 1 %>
+    <h3> <%= "Foi encontrada #{@recipes.size} receita" %> </h3>
+  <% else %>
+    <h3> <%= "Foram encontradas #{@recipes.size} receitas" %> </h3>
+  <% end %>
   <ul>
+    <% @recipes.each do |recipe| %>
+      <h1> <%= link_to recipe.title, recipe %> </h1>
+
       <li> <%= recipe.recipe_type.name %> </li>
       <li> <%= recipe.cuisine.name %> </li>
       <li> <%= recipe.difficulty %> </li>
       <li> <%= "#{recipe.cook_time} minutos" %> </li>
-  <% end %>
+    <% end %>
+  </ul>
 <% else %>
   <p>Não foram encontradas receitas com o texto informado</p>
 <% end %>
+<br>
+<%= link_to "Voltar", root_path %>

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-xfeature 'Visitor find recipes' do
+feature 'Visitor find recipes' do
   scenario 'successfully' do
     #cria os dados necessários para o teste
     cuisine = Cuisine.create(name: "Japonesa")
@@ -18,7 +18,7 @@ xfeature 'Visitor find recipes' do
     #simula a navegação do usuário
     visit root_path
 
-    fill_in 'Pesquisar', with: 'maki'
+    fill_in 'Busca', with: 'maki'
 
     #expectativa
     expect(page).to have_content("Uramaki")
