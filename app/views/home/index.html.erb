@@ -1,13 +1,22 @@
 <h1>CookBook</h1>
 <p>Bem-vindo ao maior livro de receitas online</p>
 
+<br />
+
 <%= form_tag(search_path, method: "get") do %>
   <%= label_tag :string, "Busca" %>
   <%= text_field_tag :string %>
   <%= submit_tag("Buscar") %>
 <% end %>
 
+<br />
+
 <div>
+  <% if !user_signed_in? %>
+    <%= link_to 'Entrar', new_user_session_path %> <br> <br>
+  <% else %>
+    <nav> <%= "Bem-vindo #{current_user.email} "%> </nav> - <%= link_to 'Sair', destroy_user_session_path %> <br> <br>
+  <% end %>
   <%= link_to "Enviar uma receita", new_recipe_path %> <br>
   <%= link_to "Cadastrar uma cozinha", new_cuisine_path %> <br>
   <%= link_to "Cadastrar tipo de receita", new_recipe_type_path %>
