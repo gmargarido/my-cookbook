@@ -66,4 +66,7 @@ class RecipesController < ApplicationController
     @recipes = Recipe.where('title like ?', "%#{params[:string]}%")
   end
 
+  def list
+    @recipes = Recipe.all
+  end
 end

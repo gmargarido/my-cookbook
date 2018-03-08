@@ -12,6 +12,7 @@ feature 'User remove a recipe' do
 
     #simula a ação do usuário
     visit root_path
+    click_on 'Receitas cadastradas'
     click_on recipe.title
     click_on 'Remover'
 
@@ -30,6 +31,7 @@ feature 'User remove a recipe' do
 
     #simulação da navegação do usuário
     visit root_path
+    click_on 'Receitas cadastradas'
     click_on recipe.title
     click_on 'Remover'
 

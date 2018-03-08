@@ -18,6 +18,7 @@ feature 'User update recipe' do
 
     # simula a ação do usuário
     visit root_path
+    click_on 'Receitas cadastradas'
     click_on 'Bolodecenoura'
     click_on 'Editar'
 
@@ -58,6 +59,7 @@ feature 'User update recipe' do
 
     # simula a ação do usuário
     visit root_path
+    click_on 'Receitas cadastradas'
     click_on 'Bolodecenoura'
     click_on 'Editar'
 

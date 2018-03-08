@@ -12,6 +12,7 @@ feature 'Visitor view recipe details' do
 
     # simula a ação do usuário
     visit root_path
+    click_on 'Receitas cadastradas'
     click_on recipe.title
 
     # expectativas do usuário após a ação
@@ -39,6 +40,7 @@ feature 'Visitor view recipe details' do
 
     # simula a ação do usuário
     visit root_path
+    click_on 'Receitas cadastradas'
     click_on recipe.title
     click_on 'Voltar'
 

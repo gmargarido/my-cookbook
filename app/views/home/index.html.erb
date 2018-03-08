@@ -36,12 +36,13 @@
   </ul>
 <% end %>
 
-<% @recipes.each do |recipe| %>
-<h1> <%= link_to recipe.title, recipe_path(recipe.id) %> </h1>
-<ul>
-  <li> <%= recipe.recipe_type.name %> </li>
-  <li> <%= recipe.cuisine.name %> </li>
-  <li> <%= recipe.difficulty %> </li>
-  <li> <%= "#{recipe.cook_time} minutos" %> </li>
-</ul>
+<%= link_to 'Receitas cadastradas', list_recipes_path %>
+
+<h3>Últimas receitas</h3>
+<% @last_recipes.each do |recipe| %>
+  <h4> <%= recipe.title %> </h4>
+  <ul>
+    <li><%= recipe.recipe_type.name %></li>
+    <li><%= recipe.cuisine.name   %></li>
+  </ul>
 <% end %>
