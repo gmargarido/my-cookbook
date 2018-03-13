@@ -22,8 +22,8 @@ feature 'User can authenticate' do
     fill_in 'Email', with: user.email
     fill_in 'Senha', with: user.password
     click_on 'Logar'
+    click_on 'Sair'
 
-    expect(page).to have_css('nav', text: "Bem-vindo felix@gmail.com")
     expect(page).to have_link('Entrar')
     expect(page).not_to have_link('Sair')
   end

@@ -15,7 +15,7 @@
   <% if !user_signed_in? %>
     <%= link_to 'Entrar', new_user_session_path %> <br> <br>
   <% else %>
-    <nav> <%= "Bem-vindo #{current_user.email} "%> </nav> - <%= link_to 'Sair', destroy_user_session_path %> <br> <br>
+    <nav> <%= "Bem-vindo #{current_user.email} "%> </nav> - <%= link_to 'Sair', destroy_user_session_path, method: :delete %> <br> <br>
   <% end %>
   <%= link_to "Enviar uma receita", new_recipe_path %> <br>
   <%= link_to "Cadastrar uma cozinha", new_cuisine_path %> <br>
